@@ -51,6 +51,7 @@ module.exports = {
         ],
         'max-len': ['error', { ignoreComments: true, code: 200 }],
         'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
         'linebreak-style': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error' // Checks effect dependencies

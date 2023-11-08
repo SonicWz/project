@@ -17,5 +17,6 @@
   "decrement": "decrement",
   "Авторизация": "Authorization",
   "Логин": "Login",
-  "Пароль": "Password"
+  "Пароль": "Password",
+  "Неверный логин/пароль": "Invalid username/password"
 }

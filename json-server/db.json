@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "first": "Владимир", 
+    "lastname": "Иванов", 
+    "age": "35", 
+    "currency": "RUB", 
+    "country": "Russia", 
+    "city": "Ekaterinburg", 
+    "username": "admin", 
+    "avatar": "https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg" 
+    }
 }

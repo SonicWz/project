@@ -26,9 +26,9 @@
     }
   ],
   "profile": {
-    "first": "Владимир1",
+    "first": "Владимир2",
     "lastname": "Иванов",
-    "age": "35",
+    "age": 35,
     "currency": "RUB",
     "country": "Russia",
     "city": "Ekaterinburg",

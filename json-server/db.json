@@ -16,13 +16,16 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://sun6-22.userapi.com/s/v1/if1/JLa_ypaC3yaRLfkF7bA2kn-36F4LNOcW_o2npSujB2ACtLFXUo2QWppb7PVocxouiQseCsrH.jpg?size=2160x2160&quality=96&crop=196,0,2160,2160&ava=1"
+
     },
     {
         "id": "2",
         "username": "user",
         "password": "123",
-        "role": "USER"
+        "role": "USER",
+        "avatar": "https://sun6-22.userapi.com/s/v1/if1/JLa_ypaC3yaRLfkF7bA2kn-36F4LNOcW_o2npSujB2ACtLFXUo2QWppb7PVocxouiQseCsrH.jpg?size=2160x2160&quality=96&crop=196,0,2160,2160&ava=1"
       }
   ],
   "profile": {

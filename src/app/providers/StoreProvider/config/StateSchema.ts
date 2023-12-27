@@ -1,4 +1,4 @@
-import { ArticleDetails, ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
@@ -10,16 +10,17 @@ import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
-import { AppDispatch } from 'app/providers/StoreProvider';
+import { AtricleDetailsCommentsSchema } from 'pages/AtricleDetailsPage';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
-
+    
     // Асинхронные редюсеры
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: AtricleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

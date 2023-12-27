@@ -14,6 +14,7 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import ECalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/Article';
+import { useInitialEffect } from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { getArticleData, getArticleError, getArticleIsLoading } from '../../model/selectors/articleDetails';
@@ -37,11 +38,15 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const isLoading = useSelector(getArticleIsLoading);
     const error = useSelector(getArticleError);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        };
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    });
+
+    // useEffect(() => {
+    //     if (__PROJECT__ !== 'storybook') {
+    //         dispatch(fetchArticleById(id));
+    //     };
+    // }, [dispatch, id]);
 
     let content;
 

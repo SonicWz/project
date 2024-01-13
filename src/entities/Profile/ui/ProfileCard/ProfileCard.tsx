@@ -24,7 +24,7 @@ interface ProfileCardProps {
     onChangeAvatar?: (value?: string) => void,
     onChangeCurrency?: (currency?: Currency) => void,
     onChangeCountry?: (country?: Country) => void,
-    readOnly: boolean | undefined
+    readOnly: boolean | undefined,
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {

@@ -1,0 +1,17 @@
+/* ArticleList.module.css */
+.BIG {
+
+
+    .card{
+        margin-bottom: 10px;
+    }
+}
+.SMALL {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card{
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}

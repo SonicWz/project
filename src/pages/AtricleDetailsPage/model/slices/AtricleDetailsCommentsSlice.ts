@@ -44,10 +44,9 @@ const AtricleDetailsCommentsSlice = createSlice({
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
-            })
+            });
     },
 });
-
 
 export const { actions: AtricleDetailsCommentsSliceActions } = AtricleDetailsCommentsSlice;
 export const { reducer: AtricleDetailsCommentsSliceReducer } = AtricleDetailsCommentsSlice;

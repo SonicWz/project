@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { CommentItem } from './CommentItem';
 
 export default {
-    title: 'shared/CommentItem',
+    title: 'entities/Comment/CommentItem',
     component: CommentItem,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -17,7 +17,21 @@ export default {
 
 const Template: ComponentStory<typeof CommentItem> = (args) => <CommentItem {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Normal = Template.bind({});
+Normal.args = {
+    comment: {
+        id: '1',
+        text: 'some comment',
+        user: { id: '1', username: 'V' },
+    },
+};
 
+export const isLoading = Template.bind({});
+isLoading.args = {
+    comment: {
+        id: '1',
+        text: 'some comment',
+        user: { id: '1', username: 'V' },
+    },
+    isLoading: true,
 };

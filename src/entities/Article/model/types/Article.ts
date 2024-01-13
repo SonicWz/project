@@ -1,7 +1,15 @@
+import { User } from "entities/User";
+import { StringMap } from "i18next";
+
 export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
     TEXT = 'TEXT',
+}
+
+export enum ArticleView {
+    BIG = 'BIG',
+    SMALL = 'SMALL',
 }
 
 export interface articleBlockBase {
@@ -41,6 +49,7 @@ export interface Article {
     'img': string,
     'views': number,
     'createdAt': string,
+    'user': User,
     'type': ArticleType[],
     'blocks': ArticleBlock[],
 }

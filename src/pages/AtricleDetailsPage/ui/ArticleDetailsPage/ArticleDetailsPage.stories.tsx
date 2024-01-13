@@ -1,7 +1,5 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/Article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import AtricleDetailsPage from './ArticleDetailsPage';
@@ -24,6 +22,10 @@ const article: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '2',
+        username: 'user',
+    },
     type: [ArticleType.IT],
     blocks: [
         {

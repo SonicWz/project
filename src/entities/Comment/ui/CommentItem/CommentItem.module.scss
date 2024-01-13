@@ -2,6 +2,10 @@
 .CommentItem {
     padding: 10px;
     border: 1px solid var(--primary-color);
+
+    &.loading {
+        border: none
+    }
 }
 .header {
     display: flex;

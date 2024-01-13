@@ -42,12 +42,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         dispatch(fetchArticleById(id));
     });
 
-    // useEffect(() => {
-    //     if (__PROJECT__ !== 'storybook') {
-    //         dispatch(fetchArticleById(id));
-    //     };
-    // }, [dispatch, id]);
-
     let content;
 
     const renderBlock = useCallback((block: ArticleBlock) => {

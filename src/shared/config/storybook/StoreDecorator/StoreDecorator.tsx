@@ -5,11 +5,14 @@ import { profileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+import { addCommentFormActions, addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
+    addCommentForm: addCommentFormReducer,
+    articleDetailsComments: articleDetailsReducer,
 };
 
 export const StoreDecorator = (

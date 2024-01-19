@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AddCommentFormSchema } from '../types/AddCommentForm';
+import { AddCommentFormSchema } from '../types/addCommentForm';
 
 const initialState: AddCommentFormSchema = {
-    text: undefined,
-    error: undefined,
+    text: '',
 };
 
 export const addCommentFormSlice = createSlice({
@@ -13,28 +12,20 @@ export const addCommentFormSlice = createSlice({
         setText: (state, action: PayloadAction<string>) => {
             state.text = action.payload;
         },
-        clearInput: (state) => {
-            state.text = '';
-        },
     },
     // extraReducers: (builder) => {
     //     builder
-    //         .addCase(fetchProfileData.pending, (state) => {
+    //         .addCase(loginByUsername.pending, (state) => {
     //             state.error = undefined;
     //             state.isLoading = true;
     //         })
-    //         .addCase(fetchProfileData.fulfilled, (
-    //             state,
-    //             action: PayloadAction<Profile>,
-    //         ) => {
+    //         .addCase(loginByUsername.fulfilled, (state) => {
     //             state.isLoading = false;
-    //             state.data = action.payload;
-    //             state.form = action.payload;
     //         })
-    //         .addCase(fetchProfileData.rejected, (state, action) => {
+    //         .addCase(loginByUsername.rejected, (state, action) => {
     //             state.isLoading = false;
     //             state.error = action.payload;
-    //         })
+    //         });
     // },
 });
 

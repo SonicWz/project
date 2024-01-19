@@ -1,18 +1,18 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ValidateProfileError } from '../../types/profile';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { ValidateProfileError } from 'entities/Profile';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
     username: 'admin',
-    age: 35,
-    country: Country.Russia,
-    lastname: 'R',
-    first: 'as',
-    city: 'Ekb',
-    currency: Currency.RUB,
+    age: 22,
+    country: Country.Ukraine,
+    lastname: 'ulbi tv',
+    first: 'asd',
+    city: 'asf',
+    currency: Currency.USD,
     id: '1',
 };
 
@@ -23,6 +23,7 @@ describe('updateProfileData.test', () => {
                 form: data,
             },
         });
+
         thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
         const result = await thunk.callThunk();
@@ -39,6 +40,7 @@ describe('updateProfileData.test', () => {
             },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
+
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');
@@ -46,16 +48,13 @@ describe('updateProfileData.test', () => {
             ValidateProfileError.SERVER_ERROR,
         ]);
     });
-    test('with validate error', async () => {
+
+    test('validate error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form: {
-                    ...data,
-                    lastname: '',
-                },
+                form: { ...data, lastname: '' },
             },
         });
-        thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');

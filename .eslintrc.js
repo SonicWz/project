@@ -57,6 +57,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'linebreak-style': 0,
         'no-debugger': 'off',
+        'no-undef': 'off'
     },
     globals: {
         __IS_DEV__: true,

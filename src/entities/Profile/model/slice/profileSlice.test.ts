@@ -1,18 +1,17 @@
-import { DeepPartial } from '@reduxjs/toolkit';
+import {
+    profileActions, profileReducer, ProfileSchema, updateProfileData, ValidateProfileError,
+} from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { ProfileSchema, ValidateProfileError } from '../types/profile';
-import { profileActions, profileReducer } from './profileSlice';
 
 const data = {
     username: 'admin',
     age: 22,
-    country: Country.Russia,
-    lastname: 'R',
+    country: Country.Ukraine,
+    lastname: 'ulbi tv',
     first: 'asd',
     city: 'asf',
-    currency: Currency.RUB,
+    currency: Currency.USD,
 };
 
 describe('profileSlice.test', () => {
@@ -24,14 +23,17 @@ describe('profileSlice.test', () => {
         )).toEqual({ readonly: true });
     });
 
-    test('test cancelEdit', () => {
-        const state: DeepPartial<ProfileSchema> = { readonly: false };
+    test('test cancel edit', () => {
+        const state: DeepPartial<ProfileSchema> = { data, form: { username: '' } };
+
         expect(profileReducer(
             state as ProfileSchema,
             profileActions.cancelEdit(),
         )).toEqual({
             readonly: true,
             validateErrors: undefined,
+            data,
+            form: data,
         });
     });
 
@@ -41,10 +43,10 @@ describe('profileSlice.test', () => {
         expect(profileReducer(
             state as ProfileSchema,
             profileActions.updateProfile({
-                username: '1234',
+                username: '123456',
             }),
         )).toEqual({
-            form: { username: '1234' },
+            form: { username: '123456' },
         });
     });
 

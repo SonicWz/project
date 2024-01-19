@@ -1,7 +1,6 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 export default {
@@ -10,14 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-        to: '/',
-    },
 } as ComponentMeta<typeof ArticleViewSelector>;
 
 const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-
-};
+export const Normal = Template.bind({});
+Normal.args = {};

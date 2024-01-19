@@ -1,9 +1,8 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getProfileReadonly } from './getProfileReadonly';
 
 describe('getProfileReadonly.test', () => {
-    test('should return correct data', () => {
+    test('should work with filled state', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
                 readonly: true,

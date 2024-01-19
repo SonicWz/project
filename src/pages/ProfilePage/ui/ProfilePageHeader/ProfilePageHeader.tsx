@@ -1,24 +1,30 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useSelector } from 'react-redux';
-import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    getProfileData, getProfileReadonly, profileActions, updateProfileData,
+} from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
 import cls from './ProfilePageHeader.module.scss';
 
-interface IProfilePageHeader {
-    className?: string,
+interface ProfilePageHeaderProps {
+    className?: string;
 }
 
-export const ProfilePageHeader = ({ className }: IProfilePageHeader) => {
-    const { t } = useTranslation();
+export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
+    const {
+        className,
+    } = props;
 
+    const { t } = useTranslation('profile');
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
     const readonly = useSelector(getProfileReadonly);
-    const userData = useSelector(getUserAuthData);
-    const ProfileData = useSelector(getProfileData);
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
@@ -28,6 +34,7 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeader) => {
     const onCancelEdit = useCallback(() => {
         dispatch(profileActions.cancelEdit());
     }, [dispatch]);
+
     const onSave = useCallback(() => {
         dispatch(updateProfileData());
     }, [dispatch]);
@@ -35,10 +42,10 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeader) => {
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
             <Text title={t('Профиль')} />
-            {
-                (userData?.id === ProfileData?.id) ? (
-                    <div className={cls.btnsWrapper}>
-                        {readonly ? (
+            {canEdit && (
+                <div className={cls.btnsWrapper}>
+                    {readonly
+                        ? (
                             <Button
                                 className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE}
@@ -46,7 +53,8 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeader) => {
                             >
                                 {t('Редактировать')}
                             </Button>
-                        ) : (
+                        )
+                        : (
                             <>
                                 <Button
                                     className={cls.editBtn}
@@ -64,9 +72,8 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeader) => {
                                 </Button>
                             </>
                         )}
-                    </div>
-                ) : null
-            }
+                </div>
+            )}
         </div>
     );
 };

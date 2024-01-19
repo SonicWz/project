@@ -1,9 +1,10 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import { getProfileError } from './getProfileError';
 
 describe('getProfileError.test', () => {
-    test('should return correct data', () => {
+    test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
                 error: '123',

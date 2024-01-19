@@ -1,54 +1,56 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { ChangeEvent, memo, useMemo } from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import cls from './Select.module.scss';
 
-export interface SelectOption {
-    value: string;
-    content: string
+export interface SelectOption<T extends string> {
+    value: T;
+    content: string;
 }
 
-interface ISelect {
-    className?: string,
-    label: string,
-    options?: SelectOption[],
-    value?: string,
-    onChange?: (value: string) => void,
+interface SelectProps<T extends string> {
+    className?: string;
+    label?: string;
+    options?: SelectOption<T>[];
+    value?: T;
+    onChange?: (value: T) => void;
     readonly?: boolean;
 }
 
-export const Select = memo((props: ISelect) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         className,
         label,
         options,
-        value,
         onChange,
+        value,
         readonly,
     } = props;
-    const { t } = useTranslation();
 
-    const optionsList = useMemo(() => options?.map((optionElem) => (
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        if (onChange) {
+            onChange(e.target.value as T);
+        }
+    };
+
+    const optionsList = useMemo(() => options?.map((opt) => (
         <option
             className={cls.option}
-            value={optionElem.value}
-            key={optionElem.value}
+            value={opt.value}
+            key={opt.value}
         >
-            {optionElem.content}
+            {opt.content}
         </option>
     )), [options]);
 
-    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
-    };
-
-    const mods: Mods = {
-
-    };
+    const mods: Mods = {};
 
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
-            {label && <span className={cls.label}>{label}</span>}
+            {label && (
+                <span className={cls.label}>
+                    {`${label}>`}
+                </span>
+            )}
             <select
                 disabled={readonly}
                 className={cls.select}
@@ -59,4 +61,4 @@ export const Select = memo((props: ISelect) => {
             </select>
         </div>
     );
-});
+};

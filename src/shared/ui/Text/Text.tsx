@@ -6,14 +6,14 @@ export enum TextTheme {
     PRIMARY = 'primary',
     ERROR = 'error',
 }
+
 export enum TextAlign {
+    RIGHT = 'right',
     LEFT = 'left',
     CENTER = 'center',
-    RIGHT = 'right'
 }
 
 export enum TextSize {
-    S = 'size_s',
     M = 'size_m',
     L = 'size_l',
 }
@@ -41,7 +41,7 @@ export const Text = memo((props: TextProps) => {
         [cls[theme]]: true,
         [cls[align]]: true,
         [cls[size]]: true,
-    }
+    };
 
     return (
         <div className={classNames(cls.Text, mods, [className])}>

@@ -1,19 +1,18 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {
-    test('should return correct data', () => {
+    test('should return error', () => {
         const data = {
             username: 'admin',
-            age: 35,
-            country: Country.Russia,
-            lastname: 'R',
-            first: 'as',
-            city: 'Ekb',
-            currency: Currency.RUB,
+            age: 22,
+            country: Country.Ukraine,
+            lastname: 'ulbi tv',
+            first: 'asd',
+            city: 'asf',
+            currency: Currency.USD,
         };
         const state: DeepPartial<StateSchema> = {
             profile: {

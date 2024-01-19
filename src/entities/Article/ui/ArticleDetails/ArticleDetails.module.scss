@@ -1,32 +1,34 @@
-/* ArticleDetails.module.css */
-.wrapper {
-    
-}
-.ArticleDetails{
+.ArticleDetails {
     min-height: 100%;
 }
-.block{
-    margin-top: 15px;
-}
-.avatarWrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.avatar{
+
+.avatar {
     margin: 0 auto;
 }
-.articleInfo{
+
+.title {
+    margin-top: 20px;
+}
+
+.skeleton {
+    margin-top: 15px;
+}
+
+.articleInfo {
     display: flex;
     align-items: center;
 }
-.icon{
-    margin-right: 10px;
+
+.icon {
+    margin-right: 8px;
 }
 
-.title{
-    margin-top: 20px;
+.avatarWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
-.skeleton{
-    margin-top: 15px;
+
+.block {
+    margin-top: 16px;
 }

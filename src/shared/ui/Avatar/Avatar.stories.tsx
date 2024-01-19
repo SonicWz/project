@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Avatar } from './Avatar';
-
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import AvatarImg from './storybook.jpg';
 
 export default {
     title: 'shared/Avatar',
@@ -11,29 +9,18 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-        to: '/',
-    },
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
-export const Size200 = Template.bind({});
-Size200.args = {
-    src: 'https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg',
-    size: 200,
-    alt: 'Аватар',
+export const Primary = Template.bind({});
+Primary.args = {
+    size: 150,
+    src: AvatarImg,
 };
 
-export const Size300 = Template.bind({});
-Size300.args = {
-    src: 'https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg',
-    size: 300,
-    alt: 'Аватар',
-};
-
-export const Default = Template.bind({});
-Default.args = {
-    src: 'https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg',
-    alt: 'Аватар',
+export const Small = Template.bind({});
+Small.args = {
+    size: 50,
+    src: AvatarImg,
 };

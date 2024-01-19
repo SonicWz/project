@@ -20,27 +20,6 @@ Primary.args = {
     text: 'Description Description Description Description',
 };
 
-export const SizeS = Template.bind({});
-SizeS.args = {
-    title: 'Title lorem ipsun',
-    text: 'Description Description Description Description',
-    size: TextSize.S,
-};
-
-export const SizeM = Template.bind({});
-SizeM.args = {
-    title: 'Title lorem ipsun',
-    text: 'Description Description Description Description',
-    size: TextSize.M,
-};
-
-export const SizeL = Template.bind({});
-SizeL.args = {
-    title: 'Title lorem ipsun',
-    text: 'Description Description Description Description',
-    size: TextSize.L,
-};
-
 export const Error = Template.bind({});
 Error.args = {
     title: 'Title lorem ipsun',
@@ -76,3 +55,10 @@ onlyTextDark.args = {
     text: 'Description Description Description Description',
 };
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Title lorem ipsun',
+    text: 'Description Description Description Description',
+    size: TextSize.L,
+};

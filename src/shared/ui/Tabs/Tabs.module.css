@@ -1,0 +1,9 @@
+/* Tabs.module.css */
+.Tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  cursor: pointer;
+}/*# sourceMappingURL=Tabs.module.css.map */

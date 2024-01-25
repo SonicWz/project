@@ -1,0 +1,9 @@
+/* ArticleDetailsPageHeader.module.css */
+.ArticleDetailsPageHeader {
+  display: flex;
+  align-items: center;
+}
+
+.editBtn {
+  margin-left: auto;
+}/*# sourceMappingURL=ArticleDetailsPageHeader.module.css.map */

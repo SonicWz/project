@@ -9,6 +9,8 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
+import { Dropdown, DropdownItem } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface NavbarProps {
     className?: string;
@@ -32,6 +34,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
+    const items: DropdownItem[] = [
+        {
+            content: 'Профиль',
+            href: RoutePath.profile + authData?.id,
+        },
+        {
+            content: t('Выйти'),
+            onClick: onLogout,
+        },
+    ]
+
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -43,13 +56,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    className={cls.links}
-                    onClick={onLogout}
-                >
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    className={cls.dropdown}
+                    items={items}
+                    trigger={
+                        <Avatar src={authData.avatar} size={30} />
+                    }
+                    direction='bottom left'
+                />
             </header>
         );
     }

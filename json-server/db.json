@@ -626,14 +626,14 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://avatars.mds.yandex.net/i?id=2a733f1e1aa87219daf789b68e1addfc_sr-10071889-images-thumbs&n=13"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://cs13.pikabu.ru/avatars/2487/x2487329-146029786.png"
     }
   ],

@@ -1,3 +1,4 @@
+import { rtkApi } from 'shared/api/rtkApi';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
@@ -5,7 +6,6 @@ import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
@@ -14,11 +14,13 @@ import { ArticleDetailsCommentsSchema, ArticleDetailsPageSchema, ArticleDetailsR
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { UIschema } from 'features/UIscroll';
+import { ProfileSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
-    ui: UIschema
+    ui: UIschema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema;
@@ -27,6 +29,7 @@ export interface StateSchema {
     articleDetailsPage?: ArticleDetailsPageSchema
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
+    
 }
 
 export type StateSchemaKey = keyof StateSchema;

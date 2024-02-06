@@ -3,6 +3,12 @@ export {
 } from './model/selectors/getUserAuthData/getUserAuthData';
 
 export {
+    getUserRoles,
+    isUserAdmin,
+    isUserManager,
+} from './model/selectors/getUserRoles';
+
+export {
     getUserInited,
 } from './model/selectors/getUserInited/getUserInited';
 

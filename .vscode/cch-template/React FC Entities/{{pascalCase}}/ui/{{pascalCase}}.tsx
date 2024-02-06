@@ -6,8 +6,10 @@ interface {{ pascalCase }}Props {
     className?: string,
 }
 
-export const {{ pascalCase }} = ({ className }: {{ pascalCase }}Props) => {
+export const {{ pascalCase }} = (props: {{ pascalCase }}Props) => {
     const { t } = useTranslation();
+    const { className } = props;
+    
     return (
         <div className={classNames(cls.{{ pascalCase }}, {}, [className])}>
             

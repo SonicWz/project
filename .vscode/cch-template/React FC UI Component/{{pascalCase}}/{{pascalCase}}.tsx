@@ -7,8 +7,10 @@ interface {{ pascalCase }}Props {
     className?: string,
 }
 
-export const {{ pascalCase }} = memo(({ className }: {{ pascalCase }}Props) => {
+export const {{ pascalCase }} = memo((props: {{ pascalCase }}Props) => {
     const { t } = useTranslation();
+    const { className } = props;
+
     return (
         <div className={classNames(cls.{{ pascalCase }}, {}, [className])}>
             

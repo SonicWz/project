@@ -4,12 +4,13 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import {
-    AutoSizer, List, ListRowProps, WindowScroller,
+    List, ListRowProps, WindowScroller,
 } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { ArticleView } from "../../model/consts/ArticleConsts";
 
 interface ArticleListProps {
     className?: string;
@@ -97,6 +98,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             {({ width, height, registerChild, scrollTop, isScrolling, onChildScroll }) => (
                 <div
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                    // @ts-ignore
                     ref={registerChild}
                 >
                     {virtualized ?

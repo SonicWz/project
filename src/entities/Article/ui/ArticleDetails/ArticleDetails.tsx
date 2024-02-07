@@ -21,12 +21,13 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from "../../model/consts/ArticleConsts";
 import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {

@@ -13,7 +13,7 @@ import { getProfileError } from '../model/selectors/getProfileError/getProfileEr
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileError } from '../model/types/EditableProfileCardSchema';
+import { ValidateProfileError } from "../model/consts/ValidateProfileError";
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useParams } from 'react-router-dom';

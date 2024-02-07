@@ -9,9 +9,9 @@ export const ForbiddenPageSlice = createSlice({
     name: 'ForbiddenPage',
     initialState,
     reducers: {
-        reducerName: (state, action: PayloadAction<DataType>) => {
-            state.name = action.payload;
-        },
+        // reducerName: (state, action: PayloadAction<DataType>) => {
+        //     state.name = action.payload;
+        // },
     },
     // extraReducers: (builder) => {
     //     builder

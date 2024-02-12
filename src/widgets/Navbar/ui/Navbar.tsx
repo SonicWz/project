@@ -14,6 +14,8 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/NotificationButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 
 interface NavbarProps {
     className?: string;
@@ -23,9 +25,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
-    
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -34,10 +33,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onShowModal = useCallback(() => {
         setIsAuthModal(true);
     }, []);
-
-    
-
-    
 
     if (authData) {
         return (

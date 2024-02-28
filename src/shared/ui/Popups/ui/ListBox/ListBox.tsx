@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Fragment, memo, ReactNode, useState } from 'react';
 import cls from './ListBox.module.scss';
 import { Listbox as HListBox } from '@headlessui/react';
 import { Button, ButtonTheme } from '../../../Button/Button';
 import { HStack } from '../../../Stack';
-import { DropdownDirection } from 'shared/types/ui';
+import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 

@@ -1,18 +1,18 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cls from './EditableProfileCardHeader.module.scss';
-import { Text } from 'shared/ui/Text/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text } from '@/shared/ui/Text/Text';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack';
-import { getProfileData } from 'features/EditableProfileCard/model/selectors/getProfileData/getProfileData';
-import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileActions } from 'features/EditableProfileCard/model/slice/profileSlice';
-import { updateProfileData } from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getUserAuthData } from '@/entities/User';
+import { HStack } from '@/shared/ui/Stack';
+import { getProfileData } from '@/features/EditableProfileCard/model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '@/features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '@/features/EditableProfileCard/model/slice/profileSlice';
+import { updateProfileData } from '@/features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
 
 
 interface EditableProfileCardHeaderProps {

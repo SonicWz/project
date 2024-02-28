@@ -9,9 +9,9 @@ export const {{pascalCase}}Slice = createSlice({
     name: '{{pascalCase}}',
     initialState,
     reducers: {
-        reducerName: (state, action: PayloadAction<DataType>) => {
-            state.name = action.payload;
-        },
+        // reducerName: (state, action: PayloadAction<DataType>) => {
+        //     state.name = action.payload;
+        // },
     },
     // extraReducers: (builder) => {
     //     builder

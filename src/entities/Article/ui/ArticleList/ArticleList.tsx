@@ -3,10 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
-import {
-    List, ListRowProps, WindowScroller,
-} from 'react-virtualized';
-import { PAGE_ID } from '@/widgets/Page/Page';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
@@ -36,16 +32,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     } = props;
     const { t } = useTranslation();
 
-    const renderArticle = (article: Article) => (
-        <ArticleListItem
-            article={article}
-            view={view}
-            className={cls.card}
-            key={article.id}
-            target={target}
-        />
-    );
-
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
@@ -55,10 +41,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     const isBig = view === ArticleView.BIG;
-
-    const itemsPerRow = isBig ? 1 : 3;
-    const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
-
 
     return (
         <div

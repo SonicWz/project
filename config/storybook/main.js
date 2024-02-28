@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     stories: [
         '../../src/**/*.stories.@(js|jsx|ts|tsx)',
@@ -12,4 +14,11 @@ module.exports = {
     core: {
         builder: 'webpack5',
     },
+    webpackFinal: async (config) => { 
+        config.resolve.alias = {
+          ...config.resolve.alias,
+          '@': path.resolve(__dirname, '../../src/'),
+        };
+        return config;
+      },
 };

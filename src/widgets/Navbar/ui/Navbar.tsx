@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from "@/shared/const/router";
 import cls from './Navbar.module.scss';
 import { Dropdown } from '@/shared/ui/Popups/ui/Dropdown/Dropdown';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';

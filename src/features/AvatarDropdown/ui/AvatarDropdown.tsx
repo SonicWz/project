@@ -6,7 +6,7 @@ import { Dropdown } from '@/shared/ui/Popups';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from "@/shared/const/router";
 
 interface AvatarDropdownProps {
     className?: string,

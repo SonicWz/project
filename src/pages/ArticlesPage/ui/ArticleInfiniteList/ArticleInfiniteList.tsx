@@ -1,15 +1,12 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
-import cls from './ArticleInfiniteList.module.scss';
+import { memo } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initArticlesPage } from '@/pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
-import { fetchNextArticlesPage } from '@/pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { useSearchParams } from 'react-router-dom';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { getArticles } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
 import { ArticleList } from '@/entities/Article';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 
@@ -32,7 +29,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     });
 
     if (error) {
-        return <Text text={error} theme={TextTheme.ERROR} />
+        return <Text text={error} theme={TextTheme.ERROR} />;
     }
 
     return (

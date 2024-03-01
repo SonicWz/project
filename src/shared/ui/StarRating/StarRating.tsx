@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useState } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import startIcon from '@/shared/assets/icons/star.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
@@ -24,36 +24,36 @@ export const StarRating = memo((props: StarRatingProps) => {
     } = props;
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
     const [currentStarCount, setCurrentStarCount] = useState(selectedStars || 0);
-    
+
     const onHover = (starCount: number) => () => {
-        if(!isSelected){
+        if (!isSelected) {
             setCurrentStarCount(starCount);
         }
-    }
+    };
 
     const onLeave = () => () => {
-        if(!isSelected){
+        if (!isSelected) {
             setCurrentStarCount(0);
         }
-    }
+    };
 
     const onClickHandler = (starsCount: number) => () => {
-        if(!isSelected){
+        if (!isSelected) {
             onSelect?.(starsCount);
             setCurrentStarCount(starsCount);
             setIsSelected(true);
         }
-    }
+    };
 
     const mods = {
-      [cls.selected]: isSelected,
+        [cls.selected]: isSelected,
     };
 
     return (
         <div className={classNames(cls.StarRating, {}, [className])}>
-            {stars.map(starNumber => (
+            {stars.map((starNumber) => (
                 <Icon
-                    className={classNames(cls.starIcon, mods, [currentStarCount >= starNumber? cls.hovered: cls.normal])}
+                    className={classNames(cls.starIcon, mods, [currentStarCount >= starNumber ? cls.hovered : cls.normal])}
                     width={size}
                     height={size}
                     Svg={startIcon}

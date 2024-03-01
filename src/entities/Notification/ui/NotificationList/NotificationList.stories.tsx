@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/Theme';
-import { NotificationList } from './NotificationList';
 import withMock from 'storybook-addon-mock';
+import { NotificationList } from './NotificationList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
@@ -27,10 +25,10 @@ Normal.args = {
 Normal.decorators = [
     StoreDecorator({
         user: {
-            authData: { id: '1' }
-        }
-    })
-]
+            authData: { id: '1' },
+        },
+    }),
+];
 Normal.parameters = {
     mockData: [
         {

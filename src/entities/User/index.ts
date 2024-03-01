@@ -22,5 +22,5 @@ export type {
 } from './model/types/user';
 
 export {
-    UserRole
+    UserRole,
 } from './model/consts/UserRole';

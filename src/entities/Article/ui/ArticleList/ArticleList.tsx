@@ -1,12 +1,12 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
-import { ArticleView } from "../../model/consts/ArticleConsts";
+import { ArticleView } from '../../model/consts/ArticleConsts';
 
 interface ArticleListProps {
     className?: string;
@@ -47,7 +47,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
             {
-                articles.map(item => (
+                articles.map((item) => (
                     <ArticleListItem
                         article={item}
                         view={view}
@@ -59,5 +59,5 @@ export const ArticleList = memo((props: ArticleListProps) => {
             }
             {isLoading && getSkeletons(view)}
         </div>
-    )
+    );
 });

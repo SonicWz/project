@@ -1,7 +1,7 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import React, {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
@@ -108,6 +108,6 @@ const DrawerAsync = memo((props: DrawerProps) => {
 
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>
-        <DrawerAsync  {...props}/>
+        <DrawerAsync {...props} />
     </AnimationProvider>
-)
+);

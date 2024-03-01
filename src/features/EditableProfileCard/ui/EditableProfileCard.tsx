@@ -1,11 +1,11 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './EditableProfileCard.module.scss';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback } from 'react';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { useSelector } from 'react-redux';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -13,10 +13,9 @@ import { getProfileError } from '../model/selectors/getProfileError/getProfileEr
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileError } from "../model/consts/ValidateProfileError";
+import { ValidateProfileError } from '../model/consts/ValidateProfileError';
 import { ProfileCard } from '@/entities/Profile';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useParams } from 'react-router-dom';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
@@ -89,14 +88,14 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <VStack gap={'8'} max className={classNames(cls.EditableProfileCard, {}, [className])}>
+            <VStack gap="8" max className={classNames(cls.EditableProfileCard, {}, [className])}>
                 <EditableProfileCardHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text
                         key={err}
                         theme={TextTheme.ERROR}
                         text={validateErrorTranslates[err]}
-                        data-testid={'EditableProfileCard.Error'}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard
@@ -114,6 +113,6 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     onChangeCountry={onChangeCountry}
                 />
             </VStack>
-        </DynamicModuleLoader >
+        </DynamicModuleLoader>
     );
 };

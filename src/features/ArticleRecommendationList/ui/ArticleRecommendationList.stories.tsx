@@ -47,4 +47,3 @@ Normal.parameters = {
         },
     ],
 };
-

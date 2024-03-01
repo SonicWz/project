@@ -7,7 +7,6 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './Dropdown.module.scss';
 
-
 export interface DropdownItem {
     href?: string;
     content: ReactNode;
@@ -23,7 +22,9 @@ interface DropdownProps {
 }
 
 export function Dropdown(props: DropdownProps) {
-    const { className, items, trigger, direction = 'bottom right' } = props;
+    const {
+        className, items, trigger, direction = 'bottom right',
+    } = props;
     const menuClasses = [mapDirectionClass[direction]];
 
     return (
@@ -49,18 +50,18 @@ export function Dropdown(props: DropdownProps) {
                                 <Menu.Item key={`dropdownkey + ${index}`} as={AppLink} to={item.href} disabled={item.disabled}>
                                     {content}
                                 </Menu.Item>
-                            )
+                            );
                         }
 
                         return (
                             <Menu.Item key={`dropdownkey + ${index}`} as={Fragment} disabled={item.disabled}>
                                 {content}
                             </Menu.Item>
-                        )
+                        );
                     })
                 }
 
             </Menu.Items>
-        </Menu >
-    )
+        </Menu>
+    );
 }

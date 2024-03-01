@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationList.module.scss';
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
@@ -19,27 +19,27 @@ export const NotificationList = memo((props: NotificationListProps) => {
         pollingInterval: 5000,
     });
 
-    if (isLoading){
+    if (isLoading) {
         return (
-            <VStack gap={'16'} max className={classNames(cls.NotificationList, {}, [className])}>
-                <Skeleton width={'100%'} height={80} border={'8px'} />
-                <Skeleton width={'100%'} height={80} border={'8px'} />
-                <Skeleton width={'100%'} height={80} border={'8px'} />
+            <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
+                <Skeleton width="100%" height={80} border="8px" />
+                <Skeleton width="100%" height={80} border="8px" />
+                <Skeleton width="100%" height={80} border="8px" />
             </VStack>
-        )
+        );
     }
 
-    if (isError){
+    if (isError) {
         return (
-            <Text theme={TextTheme.ERROR} text={'Ошибка'} />
-        )
+            <Text theme={TextTheme.ERROR} text="Ошибка" />
+        );
     }
 
     return (
-        <VStack gap={'16'} max className={classNames(cls.NotificationList, {}, [className])}>
+        <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
             {
-                notifications?.map(notification => (
-                    <NotificationItem notification={notification}/>
+                notifications?.map((notification) => (
+                    <NotificationItem notification={notification} />
                 ))
             }
         </VStack>

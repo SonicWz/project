@@ -1,8 +1,8 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Page } from '@/widgets/Page/Page';
 import { useParams } from 'react-router-dom';
+import { Page } from '@/widgets/Page/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
@@ -16,8 +16,7 @@ const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
     return (
         <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
             {isEdit ? t('Редактирование статьи c id: ') + id
-                : t('Создание новой статьи')
-            }
+                : t('Создание новой статьи')}
         </Page>
     );
 });

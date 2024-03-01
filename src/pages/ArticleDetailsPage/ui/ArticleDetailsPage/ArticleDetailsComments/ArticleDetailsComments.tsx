@@ -1,11 +1,11 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, Suspense, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleDetailsComments.module.scss';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
-import { useDispatch, useSelector } from 'react-redux';
 import { addCommentForArticle } from '@/pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '@/pages/ArticleDetailsPage/model/selectors/comments';
 import { getArticleComments } from '@/pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
@@ -36,11 +36,11 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     });
 
     return (
-        <VStack gap={'16'} max className={classNames(cls.ArticleDetailsComments, {}, [className])}>
+        <VStack gap="16" max className={classNames(cls.ArticleDetailsComments, {}, [className])}>
             <Text size={TextSize.L} className={cls.commentTitle} title={t('Комментарии')} />
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onSendComment={onSendComment} />
-            </Suspense>    
+            </Suspense>
             <CommentList
                 isLoading={commentsIsLoading}
                 comments={comments}

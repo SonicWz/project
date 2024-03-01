@@ -7,12 +7,12 @@ const recommendationApi = rtkApi.injectEndpoints({
             query: (limit) => ({
                 url: '/articles',
                 params: {
-                    _limit: limit
-                }
+                    _limit: limit,
+                },
             }),
         }),
     }),
     overrideExisting: false,
-})
+});
 
 export const useArticleRecommendationList = recommendationApi.useGetArticleRecommendationsListQuery;

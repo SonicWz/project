@@ -1,13 +1,11 @@
+import React, { ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { ReactNode } from 'react';
 import { Portal } from '@/shared/ui/Portal/Portal';
 
 import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import React from 'react';
-import { useDrag } from '@use-gesture/react';
-import { a, useSpring, config } from '@react-spring/web';
+
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface ModalProps {
@@ -34,8 +32,8 @@ export const Modal = (props: ModalProps) => {
         {
             animationDelay: ANIMATION_DELAY,
             onClose,
-            isOpen
-        }
+            isOpen,
+        },
     );
 
     const mods: Mods = {
@@ -50,12 +48,12 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
-                <Overlay onClick={close} />    
-                    <div
-                        className={cls.content}
-                    >
-                        {children}
-                    </div>
+                <Overlay onClick={close} />
+                <div
+                    className={cls.content}
+                >
+                    {children}
+                </div>
             </div>
         </Portal>
     );

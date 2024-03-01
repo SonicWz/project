@@ -5,4 +5,3 @@ export type {
 export {
     ProfileCard,
 } from './ui/ProfileCard/ProfileCard';
-

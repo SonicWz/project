@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ProfileRating from './ProfileRating';
 import withMock from 'storybook-addon-mock';
+import ProfileRating from './ProfileRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
@@ -24,10 +24,10 @@ Normal.args = {
 Normal.decorators = [
     StoreDecorator({
         user: {
-            authData: {id: '1'}
-        }
-    })
-]
+            authData: { id: '1' },
+        },
+    }),
+];
 Normal.parameters = {
     mockData: [
         {

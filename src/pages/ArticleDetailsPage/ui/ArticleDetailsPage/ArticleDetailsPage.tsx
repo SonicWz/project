@@ -1,8 +1,8 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, Suspense } from 'react';
-import { ArticleDetails } from '@/entities/Article';
+import { memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { ArticleDetails } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
@@ -27,7 +27,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { id } = useParams<{ id: string }>();
 
     if (!id) {
-        return null
+        return null;
     }
 
     return (

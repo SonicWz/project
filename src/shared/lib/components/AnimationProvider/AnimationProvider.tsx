@@ -14,16 +14,12 @@ interface AnimationContextPayload {
 const AnimationContext = createContext<AnimationContextPayload>({});
 
 // Обе либы зависят друг от друга
-const getAsyncAnimationModules = async () => {
-    return Promise.all([
-        import('@react-spring/web'),
-        import('@use-gesture/react'),
-    ]);
-};
+const getAsyncAnimationModules = async () => Promise.all([
+    import('@react-spring/web'),
+    import('@use-gesture/react'),
+]);
 
-export const useAnimationLibs = () => {
-    return useContext(AnimationContext) as Required<AnimationContextPayload>;
-};
+export const useAnimationLibs = () => useContext(AnimationContext) as Required<AnimationContextPayload>;
 
 export const AnimationProvider = ({ children }: {children: ReactNode}) => {
     const SpringRef = useRef<SpringType>();

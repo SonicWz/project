@@ -1,5 +1,5 @@
-import { Profile } from "@/entities/Profile";
-import { ValidateProfileError } from "../consts/ValidateProfileError";
+import { Profile } from '@/entities/Profile';
+import { ValidateProfileError } from '../consts/ValidateProfileError';
 
 export interface EditableProfileCardSchema {
 

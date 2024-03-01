@@ -70,11 +70,21 @@ module.exports = {
         'linebreak-style': 0,
         'no-debugger': 'off',
         'no-undef': 'off',
-        'ulbi-tv-plugin/path-checker': ['warn', {alias: '@'}],
-        'ulbi-tv-plugin/public-api-imports': ['warn', {
-            alias: '@',
-            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
-        }],
+        'ulbi-tv-plugin/path-checker': ['warn', { alias: '@' }],
+        'ulbi-tv-plugin/layer-imports': [
+            'warn',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        'ulbi-tv-plugin/public-api-imports': [
+            'warn',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

@@ -9,7 +9,7 @@ import {
 } from '@/entities/User';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import cls from './Navbar.module.scss';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
@@ -38,7 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <Text theme={TextTheme.INVERTED} className={cls.siteTitle} title={t('Заголовок сайта')} />
                 <AppLink
                     className={cls.newArticleBtn}
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                 >
                     {t('Создать статью')}

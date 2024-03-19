@@ -7,9 +7,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options;
 
     const svgLoader = {
-        test: /\.svg$/
-        use: ['@svgr/webpack']
-    }
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
 
     const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
     const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });

@@ -48,7 +48,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         ) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div 
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                data-testid={"ArticlesListItem"}
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -62,7 +65,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
-                        fallback={<Skeleton width={'100%'} height={250}></Skeleton>}
+                        fallback={<Skeleton width="100%" height={250} />}
                     />
                     {textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
@@ -88,6 +91,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             to={getRouteArticlesDetails(article.id)}
             target={target}
+            data-testid={"ArticlesListItem"}
         >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
@@ -96,7 +100,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
-                        fallback={<Skeleton width={200} height={200}></Skeleton>}
+                        fallback={<Skeleton width={200} height={200} />}
                     />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>

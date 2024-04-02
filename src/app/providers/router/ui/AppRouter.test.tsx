@@ -1,7 +1,9 @@
 import { screen } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import AppRouter from './AppRouter';
-import { getRouteAbout, getRouteAdminPanel, getRouteNotFound, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAbout, getRouteAdminPanel, getRouteProfile,
+} from '@/shared/const/router';
 import { UserRole } from '@/entities/User';
 
 describe('app/router/AppRouter', () => {
@@ -39,9 +41,9 @@ describe('app/router/AppRouter', () => {
             initialState: {
                 user: {
                     _inited: true,
-                    authData: {}
-                }
-            }
+                    authData: {},
+                },
+            },
         });
         const page = await screen.findByTestId('ProfilePage');
         expect(page).toBeInTheDocument();
@@ -53,9 +55,9 @@ describe('app/router/AppRouter', () => {
             initialState: {
                 user: {
                     _inited: true,
-                    authData: {}
-                }
-            }
+                    authData: {},
+                },
+            },
         });
         const page = await screen.findByTestId('ForbiddenPage');
         expect(page).toBeInTheDocument();
@@ -68,10 +70,10 @@ describe('app/router/AppRouter', () => {
                 user: {
                     _inited: true,
                     authData: {
-                        roles: [UserRole.ADMIN]
-                    }
-                }
-            }
+                        roles: [UserRole.ADMIN],
+                    },
+                },
+            },
         });
         const page = await screen.findByTestId('AdminPanelPage');
         expect(page).toBeInTheDocument();

@@ -7,7 +7,7 @@ import { getRouteArticles, getRouteArticlesDetails } from '@/shared/const/router
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';
-import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
+import { getCanEditArticle } from '../../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 import { HStack } from '@/shared/ui/Stack';
 

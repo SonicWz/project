@@ -9,10 +9,10 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';
-import { getProfileData } from '@/features/EditableProfileCard/model/selectors/getProfileData/getProfileData';
-import { getProfileReadonly } from '@/features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileActions } from '@/features/EditableProfileCard/model/slice/profileSlice';
-import { updateProfileData } from '@/features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 interface EditableProfileCardHeaderProps {
     className?: string,

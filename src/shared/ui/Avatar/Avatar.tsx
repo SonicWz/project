@@ -11,7 +11,7 @@ interface AvatarProps {
     src?: string;
     size?: number;
     alt?: string;
-    fallbackInverted?: boolean; 
+    fallbackInverted?: boolean;
 }
 
 export const Avatar = ({
@@ -28,8 +28,8 @@ export const Avatar = ({
         height: size,
     }), [size]);
 
-    const fallback = <Skeleton width={size} height={size} border={'50%'} />;
-    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserDefaultIcon}></Icon>;
+    const fallback = <Skeleton width={size} height={size} border="50%" />;
+    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserDefaultIcon} />;
 
     return (
         <AppImage

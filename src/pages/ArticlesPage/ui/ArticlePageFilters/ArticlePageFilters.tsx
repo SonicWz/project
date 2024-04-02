@@ -6,19 +6,19 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import {
     ArticleSortField, ArticleView, ArticleType,
 } from '@/entities/Article';
-import { articlesPageActions } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
     getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView,
-} from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+} from '../../model/selectors/articlesPageSelectors';
 import { Input } from '@/shared/ui/Input/Input';
 import { Card } from '@/shared/ui/Card/Card';
 import { SortOrder } from '@/shared/types/sort';
-import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 
-import { ArticleSortSelector } from '@/features/ArticleSortSelector/';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import cls from './ArticlePageFilters.module.scss';
-import { ArticleTypeTabs } from '@/features/ArticleTypeTabs/';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 interface ArticlePageFiltersProps {

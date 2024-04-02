@@ -13,7 +13,7 @@ const MainPage = () => {
 
     return (
         <Page
-            data-testid={'MainPage'} 
+            data-testid="MainPage"
         >
             {t('Главная страница')}
             <div>

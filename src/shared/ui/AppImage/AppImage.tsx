@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState } from 'react';
+import {
+    ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState,
+} from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement>{
     className?: string,
@@ -9,7 +11,8 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement>{
 
 export const AppImage = memo((props: AppImageProps) => {
     const { t } = useTranslation();
-    const { className,
+    const {
+        className,
         src,
         alt = 'image',
         fallback,
@@ -29,14 +32,14 @@ export const AppImage = memo((props: AppImageProps) => {
         img.onerror = () => {
             setIsLoading(false);
             setHasError(true);
-        }
-    }, [src])
+        };
+    }, [src]);
 
-    if (isLoading && fallback){
+    if (isLoading && fallback) {
         return fallback;
     }
 
-    if (hasError && errorFallback){
+    if (hasError && errorFallback) {
         return errorFallback;
     }
 

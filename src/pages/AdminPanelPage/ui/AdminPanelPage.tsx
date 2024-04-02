@@ -12,8 +12,8 @@ const AdminPanelPage = (props: AdminPanelPageProps) => {
     const { className } = props;
 
     return (
-        <Page 
-            data-testid={'AdminPanelPage'}
+        <Page
+            data-testid="AdminPanelPage"
             className={classNames(cls.AdminPanelPage, {}, [className])}
         >
             {t('Админ панель')}

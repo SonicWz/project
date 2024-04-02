@@ -24,8 +24,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }
 
     return (
-        <Page 
-            data-testid={'ProfilePage'} 
+        <Page
+            data-testid="ProfilePage"
             className={classNames('', {}, [className])}
         >
             <VStack gap="16" max>

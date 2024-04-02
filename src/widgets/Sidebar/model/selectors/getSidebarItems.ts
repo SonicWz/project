@@ -1,5 +1,5 @@
-import { getRouteAbout, getRouteProfile, getRouteArticles } from './../../../../shared/const/router';
 import { createSelector } from '@reduxjs/toolkit';
+import { getRouteAbout, getRouteProfile, getRouteArticles } from '../../../../shared/const/router';
 import { getUserAuthData } from '@/entities/User';
 import { getRouteMain } from '@/shared/const/router';
 import MainIcon from '@/shared/assets/icons/main-20-20.svg';

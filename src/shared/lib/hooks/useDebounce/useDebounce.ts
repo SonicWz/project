@@ -1,10 +1,10 @@
 import { MutableRefObject, useCallback, useRef } from 'react';
 
 /**
- * 
- * @param callback 
+ *
+ * @param callback
  * @param delay - задержка в мс
- * @returns 
+ * @returns
  */
 
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {

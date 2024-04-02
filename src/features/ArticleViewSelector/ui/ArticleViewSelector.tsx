@@ -7,7 +7,6 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
 
-
 interface ArticleViewSelectorProps {
     className?: string;
     view: ArticleView,

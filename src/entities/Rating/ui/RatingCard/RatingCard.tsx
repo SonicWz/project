@@ -76,12 +76,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 placeholder={t('Напишите ваш отзыв')}
                 value={feedback}
                 onChange={onChange}
+                data-testid="ArticleRating.Input"
             />
         </>
     );
 
     return (
-        <Card max className={classNames(cls.RatingCard, {}, [className])}>
+        <Card
+            max
+            className={classNames(cls.RatingCard, {}, [className])}
+            data-testid="ArticleRating.RatingCard"
+        >
             <VStack align="center" gap="8">
                 {
                     isOwn ? <Text title={!rate ? title : t('Оценка профиля')} />
@@ -99,8 +104,16 @@ export const RatingCard = memo((props: RatingCardProps) => {
                     <VStack gap="32" max>
                         {modalContent}
                         <HStack gap="16" max justify="end">
-                            <Button onClick={onOk} theme={ButtonTheme.OUTLINE}>{t('ОК')}</Button>
-                            <Button onClick={onClose} theme={ButtonTheme.OUTLINE_RED}>{t('Отмена')}</Button>
+                            <Button
+                                data-testid="ArticleRating.SendButton"
+                                onClick={onOk}
+                                theme={ButtonTheme.OUTLINE}
+                            >{t('ОК')}</Button>
+                            <Button
+                                data-testid="ArticleRating.CancelButton"
+                                onClick={onClose}
+                                theme={ButtonTheme.OUTLINE_RED}
+                            >{t('Отмена')}</Button>
                         </HStack>
                     </VStack>
 
@@ -114,7 +127,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 >
                     <VStack gap="32">
                         {modalContent}
-                        <Button fullWidth onClick={onOk} size={ButtonSize.L}>
+                        <Button
+                            fullWidth
+                            onClick={onOk}
+                            size={ButtonSize.L}
+                        >
                             {t('Отправить')}
                         </Button>
                     </VStack>

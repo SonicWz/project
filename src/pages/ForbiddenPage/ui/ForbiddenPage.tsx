@@ -12,8 +12,8 @@ const ForbiddenPage = (props: ForbiddenPageProps) => {
     const { className } = props;
 
     return (
-        <Page 
-            data-testid={'ForbiddenPage'}  
+        <Page
+            data-testid="ForbiddenPage"
             className={classNames(cls.ForbiddenPage, {}, [className])}
         >
             {t('Нет доступа')}

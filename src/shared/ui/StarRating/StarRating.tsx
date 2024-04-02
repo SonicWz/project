@@ -3,7 +3,7 @@ import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import startIcon from '@/shared/assets/icons/star.svg';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '../Icon/Icon';
 
 interface StarRatingProps {
     className?: string,
@@ -53,6 +53,8 @@ export const StarRating = memo((props: StarRatingProps) => {
         <div className={classNames(cls.StarRating, {}, [className])}>
             {stars.map((starNumber) => (
                 <Icon
+                    data-testid={`ArticleRating.Star${starNumber}`}
+                    data-selected={currentStarCount >= starNumber}
                     className={classNames(cls.starIcon, mods, [currentStarCount >= starNumber ? cls.hovered : cls.normal])}
                     width={size}
                     height={size}

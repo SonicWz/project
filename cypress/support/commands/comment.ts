@@ -1,12 +1,12 @@
-import { Comment } from '@/entities/Comment';
+import { Comment } from "@/entities/Comment"
 
 export const addComment = (text: string) => {
     cy.getByTestId('AddCommentForm.Input').type(text);
     cy.getByTestId('AddCommentForm.Button').click();
-};
+}
 
 export const removeComment = (text: string) => {
-    cy.request({
+     cy.request({
         method: 'GET',
         url: `http://localhost:8000/comments?text=${text}`,
         headers: { Authorization: 'asasf' },
@@ -15,9 +15,10 @@ export const removeComment = (text: string) => {
             method: 'DELETE',
             url: `http://localhost:8000/comments/${body[0].id}`,
             headers: { Authorization: 'asasf' },
-        });
-    });
-};
+        })
+    })
+    
+}
 
 declare global {
     namespace Cypress {

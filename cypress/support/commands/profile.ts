@@ -1,16 +1,14 @@
 import { selectByTestId } from 'cypress/helpres/selectByTestId';
 import { User } from '../../../src/entities/User/model/types/user';
-import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localstorage';
+import { USER_LOCALSTORAGE_KEY } from "../../../src/shared/const/localstorage";
 
-export const updateProfile = (
-    firstname: string = '',
-    lastname: string = '',
-) => {
+export const updateProfile = (firstname: string = '', lastname: string = '') => {
     cy.getByTestId('EditableProfileCardHeader.EditButton').click();
     cy.getByTestId('ProfileCard.firstname').clear().type(firstname);
     cy.getByTestId('ProfileCard.lastname').clear().type(lastname);
     cy.getByTestId('EditableProfileCardHeader.SaveButton').click();
-};
+
+}
 
 export const resetProfile = (profileId: string) => {
     cy.request({
@@ -28,16 +26,13 @@ export const resetProfile = (profileId: string) => {
             username: 'testuser',
             avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
         },
-    });
-};
+    })
+}
 
 declare global {
     namespace Cypress {
         interface Chainable {
-            updateProfile(
-                firstname: string,
-                lastname: string,
-            ): ReturnType<typeof cy.get>;
+            updateProfile(firstname: string, lastname: string): ReturnType<typeof cy.get>;
             resetProfile(profileId: string): ReturnType<typeof cy.get>;
         }
     }

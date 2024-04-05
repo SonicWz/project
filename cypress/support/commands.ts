@@ -16,4 +16,5 @@ Cypress.Commands.addAll(ratingCommands);
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
 
-export {};
+
+export { };

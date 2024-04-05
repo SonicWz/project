@@ -4,10 +4,10 @@ import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
 import { Input } from '@/shared/ui/Input/Input';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Currency, CurrencySelect } from '@/entities/Currency';
-
-import { Country, CountrySelect } from '@/entities/Country';
-
+import { Currency } from '@/entities/Currency/model/types/currency';
+import { CurrencySelect } from '@/entities/Currency';
+import { Country } from '@/entities/Country/model/types/country';
+import { CountrySelect } from '@/entities/Country';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -48,7 +48,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <HStack justify="center" className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+            <HStack
+                justify="center"
+                className={classNames(
+                    cls.ProfileCard,
+                    { [cls.loading]: true },
+                    [className],
+                )}
+            >
                 <Loader />
             </HStack>
         );
@@ -56,7 +63,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                justify="center"
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -72,7 +85,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <VStack gap="8" max className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap="8"
+            max
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
                 <HStack justify="center" max className={cls.avatarWrapper}>
                     <Avatar src={data?.avatar} />

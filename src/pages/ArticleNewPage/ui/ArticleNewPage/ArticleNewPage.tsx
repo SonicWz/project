@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleNewPage.module.scss';
 
 interface ArticleNewPageProps {
-    className?: string,
+    className?: string;
 }
 
 const ArticleNewPage = memo(({ className }: ArticleNewPageProps) => {

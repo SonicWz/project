@@ -1,3 +1,3 @@
 export interface TypeProps {
-    'data-testid'?: string,
+    'data-testid'?: string;
 }

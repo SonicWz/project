@@ -1,20 +1,18 @@
-import { selectByTestId } from "cypress/helpres/selectByTestId";
+import { selectByTestId } from 'cypress/helpres/selectByTestId';
 
 let currentArticleId = '';
 
 describe('Пользователь авторизуется и заходит на страницу статьи', () => {
     beforeEach(() => {
-        cy.login().then((data) => {
-
-        });
+        cy.login().then((data) => {});
         cy.createArticle().then((article) => {
             currentArticleId = article.id;
             cy.visit(`articles/${article.id}`);
         });
-    })
+    });
     afterEach(() => {
         cy.removeArticle(currentArticleId);
-    })
+    });
 
     it('И содержимое статьи успешно загружается', () => {
         cy.get(selectByTestId('ArticleDetailsInfo')).should('exist');
@@ -30,10 +28,12 @@ describe('Пользователь авторизуется и заходит н
         cy.removeComment('testText');
     });
     it('И оценивает статью (со стабом на фикстурах)', () => {
-        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'article-details.json',
+        });
         cy.getByTestId('ArticleDetailsInfo').should('exist');
         cy.getByTestId('ArticleRating.RatingCard').scrollIntoView();
         cy.setRate(5, 'feedback');
         cy.get(`[data-selected=true]`).should('have.length', 5);
     });
-})
+});

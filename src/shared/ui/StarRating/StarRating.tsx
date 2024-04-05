@@ -3,27 +3,24 @@ import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import startIcon from '@/shared/assets/icons/star.svg';
-import { Icon } from '../Icon/Icon';
+import { Icon } from '@/shared/ui/Icon/Icon';
 
 interface StarRatingProps {
-    className?: string,
-    onSelect?: (starsCount: number) => void,
-    size?: number,
-    selectedStars?: number,
+    className?: string;
+    onSelect?: (starsCount: number) => void;
+    size?: number;
+    selectedStars?: number;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
     const { t } = useTranslation();
-    const {
-        className,
-        onSelect,
-        size = 30,
-        selectedStars = 0,
-    } = props;
+    const { className, onSelect, size = 30, selectedStars = 0 } = props;
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
-    const [currentStarCount, setCurrentStarCount] = useState(selectedStars || 0);
+    const [currentStarCount, setCurrentStarCount] = useState(
+        selectedStars || 0,
+    );
 
     const onHover = (starCount: number) => () => {
         if (!isSelected) {
@@ -53,9 +50,11 @@ export const StarRating = memo((props: StarRatingProps) => {
         <div className={classNames(cls.StarRating, {}, [className])}>
             {stars.map((starNumber) => (
                 <Icon
-                    data-testid={`ArticleRating.Star${starNumber}`}
-                    data-selected={currentStarCount >= starNumber}
-                    className={classNames(cls.starIcon, mods, [currentStarCount >= starNumber ? cls.hovered : cls.normal])}
+                    className={classNames(cls.starIcon, mods, [
+                        currentStarCount >= starNumber
+                            ? cls.hovered
+                            : cls.normal,
+                    ])}
                     width={size}
                     height={size}
                     Svg={startIcon}

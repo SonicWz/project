@@ -4,7 +4,7 @@ import cls from './ForbiddenPage.module.scss';
 import { Page } from '@/widgets/Page/Page';
 
 interface ForbiddenPageProps {
-    className?: string,
+    className?: string;
 }
 
 const ForbiddenPage = (props: ForbiddenPageProps) => {
@@ -13,7 +13,7 @@ const ForbiddenPage = (props: ForbiddenPageProps) => {
 
     return (
         <Page
-            data-testid="ForbiddenPage"
+            data-testid={'ForbiddenPage'}
             className={classNames(cls.ForbiddenPage, {}, [className])}
         >
             {t('Нет доступа')}

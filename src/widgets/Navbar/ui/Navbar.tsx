@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthByUserName';
-import {
-    getUserAuthData,
-} from '@/entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 import { getRouteArticleCreate } from '@/shared/const/router';
@@ -35,7 +33,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text theme={TextTheme.INVERTED} className={cls.siteTitle} title={t('Заголовок сайта')} />
+                <Text
+                    theme={TextTheme.INVERTED}
+                    className={cls.siteTitle}
+                    title={t('Заголовок сайта')}
+                />
                 <AppLink
                     className={cls.newArticleBtn}
                     to={getRouteArticleCreate()}
@@ -61,10 +63,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {t('Войти')}
             </Button>
             {isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
-                />
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             )}
         </header>
     );

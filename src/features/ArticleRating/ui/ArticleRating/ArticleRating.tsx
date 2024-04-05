@@ -4,13 +4,16 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleRating.module.scss';
 import { RatingCard } from '@/entities/Rating';
-import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
+import {
+    useGetArticleRating,
+    useRateArticle,
+} from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 export interface ArticleRatingProps {
-    className?: string,
-    articleId: string,
+    className?: string;
+    articleId: string;
 }
 
 const ArticleRating = memo((props: ArticleRatingProps) => {
@@ -24,27 +27,36 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     });
     const [rateArticleMutation, {}] = useRateArticle();
 
-    const rateArticleHandler = useCallback((starCount: number, feedback?: string) => {
-        try {
-            const args = {
-                userId: userData?.id ?? '',
-                articleId,
-                rate: starCount,
-                feedback,
-            };
-            rateArticleMutation(args);
-        } catch (e) {
-            console.log(e);
-        }
-    }, [userData?.id, articleId, rateArticleMutation]);
+    const rateArticleHandler = useCallback(
+        (starCount: number, feedback?: string) => {
+            try {
+                const args = {
+                    userId: userData?.id ?? '',
+                    articleId,
+                    rate: starCount,
+                    feedback,
+                };
+                rateArticleMutation(args);
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [userData?.id, articleId, rateArticleMutation],
+    );
 
-    const onRateArticleAccept = useCallback((starCount: number, feedback?: string) => {
-        rateArticleHandler(starCount, feedback);
-    }, [rateArticleHandler]);
+    const onRateArticleAccept = useCallback(
+        (starCount: number, feedback?: string) => {
+            rateArticleHandler(starCount, feedback);
+        },
+        [rateArticleHandler],
+    );
 
-    const onRateArticleCancel = useCallback((starCount: number) => {
-        rateArticleHandler(starCount);
-    }, [rateArticleHandler]);
+    const onRateArticleCancel = useCallback(
+        (starCount: number) => {
+            rateArticleHandler(starCount);
+        },
+        [rateArticleHandler],
+    );
 
     if (isLoading) {
         return <Skeleton width="100%" height={120} />;

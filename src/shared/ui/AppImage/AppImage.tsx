@@ -1,12 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import {
-    ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState,
+    ImgHTMLAttributes,
+    memo,
+    ReactElement,
+    useLayoutEffect,
+    useState,
 } from 'react';
 
-interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement>{
-    className?: string,
-    fallback?: ReactElement,
-    errorFallback?: ReactElement,
+interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+    className?: string;
+    fallback?: ReactElement;
+    errorFallback?: ReactElement;
 }
 
 export const AppImage = memo((props: AppImageProps) => {
@@ -43,7 +47,5 @@ export const AppImage = memo((props: AppImageProps) => {
         return errorFallback;
     }
 
-    return (
-        <img className={className} src={src} alt={alt} {...otherProps} />
-    );
+    return <img className={className} src={src} alt={alt} {...otherProps} />;
 });

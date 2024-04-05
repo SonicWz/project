@@ -2,5 +2,5 @@
 export type ScrollSchema = Record<string, number>;
 
 export interface UIscrollSchema {
-    scroll: ScrollSchema,
+    scroll: ScrollSchema;
 }

@@ -9,19 +9,27 @@ import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 
 interface NotificationListProps {
-    className?: string,
+    className?: string;
 }
 
 export const NotificationList = memo((props: NotificationListProps) => {
     const { t } = useTranslation();
     const { className } = props;
-    const { data: notifications, isError, isLoading } = useNotifications(null, {
+    const {
+        data: notifications,
+        isError,
+        isLoading,
+    } = useNotifications(null, {
         pollingInterval: 5000,
     });
 
     if (isLoading) {
         return (
-            <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
+            <VStack
+                gap="16"
+                max
+                className={classNames(cls.NotificationList, {}, [className])}
+            >
                 <Skeleton width="100%" height={80} border="8px" />
                 <Skeleton width="100%" height={80} border="8px" />
                 <Skeleton width="100%" height={80} border="8px" />
@@ -30,18 +38,18 @@ export const NotificationList = memo((props: NotificationListProps) => {
     }
 
     if (isError) {
-        return (
-            <Text theme={TextTheme.ERROR} text="Ошибка" />
-        );
+        return <Text theme={TextTheme.ERROR} text="Ошибка" />;
     }
 
     return (
-        <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
-            {
-                notifications?.map((notification) => (
-                    <NotificationItem notification={notification} />
-                ))
-            }
+        <VStack
+            gap="16"
+            max
+            className={classNames(cls.NotificationList, {}, [className])}
+        >
+            {notifications?.map((notification) => (
+                <NotificationItem notification={notification} />
+            ))}
         </VStack>
     );
 });

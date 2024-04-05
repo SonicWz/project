@@ -11,7 +11,7 @@ import Notification from '@/shared/assets/icons/notification-20-20.svg';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 interface NotificationButtonProps {
-    className?: string,
+    className?: string;
 }
 
 export const NotificationButton = (props: NotificationButtonProps) => {
@@ -27,10 +27,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
     }, []);
 
     const trigger = (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={onOpenDrawer}
-        >
+        <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
             <Icon Svg={Notification} inverted />
         </Button>
     );
@@ -39,7 +36,9 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         <div>
             <BrowserView>
                 <Popover
-                    className={classNames(cls.NotificationButton, {}, [className])}
+                    className={classNames(cls.NotificationButton, {}, [
+                        className,
+                    ])}
                     trigger={trigger}
                     direction="bottom left"
                 >

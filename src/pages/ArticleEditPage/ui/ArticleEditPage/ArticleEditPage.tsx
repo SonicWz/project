@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
-    className?: string,
+    className?: string;
 }
 
 const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
@@ -15,7 +15,8 @@ const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
     const isEdit = Boolean(id);
     return (
         <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
-            {isEdit ? t('Редактирование статьи c id: ') + id
+            {isEdit
+                ? t('Редактирование статьи c id: ') + id
                 : t('Создание новой статьи')}
         </Page>
     );

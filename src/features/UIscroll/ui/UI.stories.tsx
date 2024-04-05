@@ -15,6 +15,4 @@ export default {
 const Template: ComponentStory<typeof UI> = (args) => <UI {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
+Primary.args = {};

@@ -6,12 +6,15 @@ import cls from './AvatarDropdown.module.scss';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
-    className?: string,
+    className?: string;
 }
 
 export const AvatarDropdown = (props: AvatarDropdownProps) => {
@@ -35,22 +38,24 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
     return (
         <Dropdown
             className={classNames(cls.dropdown, {}, [className])}
-            items={
-                [
-                    ...(isAdminPanelAvailable ? [{
-                        content: t('Админка'),
-                        href: getRouteAdminPanel(),
-                    }] : []), // if isAdminPanelAvailable = false => empty array
-                    {
-                        content: t('Профиль'),
-                        href: getRouteProfile(authData?.id),
-                    },
-                    {
-                        content: t('Выйти'),
-                        onClick: onLogout,
-                    },
-                ]
-            }
+            items={[
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
+                    : []), // if isAdminPanelAvailable = false => empty array
+                {
+                    content: t('Профиль'),
+                    href: getRouteProfile(authData?.id),
+                },
+                {
+                    content: t('Выйти'),
+                    onClick: onLogout,
+                },
+            ]}
             trigger={
                 <Avatar fallbackInverted src={authData.avatar} size={30} />
             }

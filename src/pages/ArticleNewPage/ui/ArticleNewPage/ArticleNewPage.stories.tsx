@@ -12,9 +12,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleNewPage>;
 
-const Template: ComponentStory<typeof ArticleNewPage> = (args) => <ArticleNewPage {...args} />;
+const Template: ComponentStory<typeof ArticleNewPage> = (args) => (
+    <ArticleNewPage {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
+Primary.args = {};

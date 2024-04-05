@@ -4,7 +4,7 @@ import cls from './AdminPanelPage.module.scss';
 import { Page } from '@/widgets/Page/Page';
 
 interface AdminPanelPageProps {
-    className?: string,
+    className?: string;
 }
 
 const AdminPanelPage = (props: AdminPanelPageProps) => {
@@ -13,7 +13,7 @@ const AdminPanelPage = (props: AdminPanelPageProps) => {
 
     return (
         <Page
-            data-testid="AdminPanelPage"
+            data-testid={'AdminPanelPage'}
             className={classNames(cls.AdminPanelPage, {}, [className])}
         >
             {t('Админ панель')}

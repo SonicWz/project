@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ProfileRatingSchema } from '../types/ProfileRatingSchema';
 
-const initialState: ProfileRatingSchema = {
-
-};
+const initialState: ProfileRatingSchema = {};
 
 export const ProfileRatingSlice = createSlice({
     name: 'ProfileRating',

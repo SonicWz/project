@@ -1,9 +1,7 @@
 import { Profile } from '@/entities/Profile';
 import { ValidateProfileError } from '../consts/ValidateProfileError';
 
-export interface EditableProfileCardSchema {
-
-}
+export interface EditableProfileCardSchema {}
 
 export interface ProfileSchema {
     data?: Profile;

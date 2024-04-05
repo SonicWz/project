@@ -2,7 +2,10 @@ import { screen } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import AppRouter from './AppRouter';
 import {
-    getRouteAbout, getRouteAdminPanel, getRouteProfile,
+    getRouteAbout,
+    getRouteAdminPanel,
+    getRouteNotFound,
+    getRouteProfile,
 } from '@/shared/const/router';
 import { UserRole } from '@/entities/User';
 
@@ -28,7 +31,6 @@ describe('app/router/AppRouter', () => {
     test('Редирект неавторизованного пользователя на главную', async () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
-
         });
 
         const page = await screen.findByTestId('MainPage');

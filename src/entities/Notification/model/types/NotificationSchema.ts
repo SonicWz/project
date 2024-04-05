@@ -1,3 +1,1 @@
-export interface NotificationSchema {
-
-}
+export interface NotificationSchema {}

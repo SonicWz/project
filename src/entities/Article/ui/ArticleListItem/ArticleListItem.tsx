@@ -11,10 +11,11 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { getRouteArticlesDetails } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import cls from './ArticleListItem.module.scss';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import {
-    Article, ArticleTextBlock,
-} from '../../model/types/article';
-import { ArticleBlockType, ArticleView } from '../../model/consts/ArticleConsts';
+    ArticleBlockType,
+    ArticleView,
+} from '../../model/consts/ArticleConsts';
 
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
@@ -28,9 +29,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className, article, view, target,
-    } = props;
+    const { className, article, view, target } = props;
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -48,14 +47,19 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         ) as ArticleTextBlock;
 
         return (
-            <div 
-                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-                data-testid={"ArticlesListItem"}
+            <div
+                className={classNames(cls.ArticleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
             >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={cls.username} />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
@@ -65,10 +69,15 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
-                        fallback={<Skeleton width="100%" height={250} />}
+                        fallback={
+                            <Skeleton width={'100%'} height={250}></Skeleton>
+                        }
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cls.textBlock}
+                        />
                     )}
                     <div className={cls.footer}>
                         <AppLink
@@ -88,10 +97,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <AppLink
-            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            className={classNames(cls.ArticleListItem, {}, [
+                className,
+                cls[view],
+            ])}
             to={getRouteArticlesDetails(article.id)}
             target={target}
-            data-testid={"ArticlesListItem"}
         >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
@@ -100,7 +111,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
-                        fallback={<Skeleton width={200} height={200} />}
+                        fallback={
+                            <Skeleton width={200} height={200}></Skeleton>
+                        }
                     />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>

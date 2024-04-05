@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ArticleRecommendationListSchema } from '../types/ArticleRecommendationListSchema';
 
-const initialState: ArticleRecommendationListSchema = {
-
-};
+const initialState: ArticleRecommendationListSchema = {};
 
 export const ArticleRecommendationListSlice = createSlice({
     name: 'ArticleRecommendationList',
@@ -33,5 +31,7 @@ export const ArticleRecommendationListSlice = createSlice({
     // },
 });
 
-export const { actions: ArticleRecommendationListActions } = ArticleRecommendationListSlice;
-export const { reducer: ArticleRecommendationListReducer } = ArticleRecommendationListSlice;
+export const { actions: ArticleRecommendationListActions } =
+    ArticleRecommendationListSlice;
+export const { reducer: ArticleRecommendationListReducer } =
+    ArticleRecommendationListSlice;

@@ -1,20 +1,16 @@
 /* StarRating.module.css */
 .StarRating {
-
+    
 }
-
-.starIcon {
+.starIcon{
     cursor: pointer;
 }
-
-.normal {
+.normal{
     fill: none;
 }
-
 .hovered {
-    fill: var(--primary-color);
+    fill: var(--primary-color);   
 }
-
-.selected {
+.selected{
     cursor: auto;
 }

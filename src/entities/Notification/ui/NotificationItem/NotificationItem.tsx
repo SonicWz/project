@@ -7,8 +7,8 @@ import { Card, CardTheme } from '@/shared/ui/Card/Card';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 
 interface NotificationItemProps {
-    className?: string,
-    notification: Notification,
+    className?: string;
+    notification: Notification;
 }
 
 export const NotificationItem = memo((props: NotificationItemProps) => {
@@ -20,13 +20,22 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
             theme={CardTheme.OUTLINE}
             className={classNames(cls.NotificationItem, {}, [className])}
         >
-            <Text theme={TextTheme.PRIMARY} title={notification.title} text={notification.description} />
+            <Text
+                theme={TextTheme.PRIMARY}
+                title={notification.title}
+                text={notification.description}
+            />
         </Card>
     );
 
     if (notification.href) {
         return (
-            <a className={cls.link} href={notification.href} target="_blank" rel="noreferrer">
+            <a
+                className={cls.link}
+                href={notification.href}
+                target="_blank"
+                rel="noreferrer"
+            >
                 {content}
             </a>
         );

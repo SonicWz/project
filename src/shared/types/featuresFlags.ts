@@ -1,3 +1,4 @@
 export interface FeaturesFlags {
-    isArticleRatingEnabled: boolean;
+  isArticleRatingEnabled: boolean;
+  isAppRedesigned: boolean;
 }

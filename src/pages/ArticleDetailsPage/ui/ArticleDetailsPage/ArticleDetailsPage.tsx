@@ -11,13 +11,13 @@ import { Page } from "@/widgets/Page/Page";
 import { articleDetailsPageReducer } from "../../model/slices";
 import cls from "./ArticleDetailsPage.module.scss";
 import { ArticleDetailsPageHeader } from "./ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { ArticleRecommendationList } from "@/features/ArticleRecommendationList";
 import { ArticleDetailsComments } from "./ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/ArticleRating";
 import { getFeaturesFlags, ToggleFeatures } from "@/shared/lib/features";
 import { toggleFeatures } from "@/shared/lib/features/toggleFeatures";
-import { Card } from "@/shared/ui/Card/Card";
+import { Card } from "@/shared/ui/deprecated/Card/Card";
 interface ArticleDetailsPageProps {
   className?: string;
 }

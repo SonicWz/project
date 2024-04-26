@@ -12,7 +12,7 @@ import {
 import { getArticles } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleList } from '@/entities/Article';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 
 interface ArticleInfiniteListProps {
     className?: string;

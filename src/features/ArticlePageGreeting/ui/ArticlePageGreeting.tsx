@@ -1,9 +1,9 @@
 import { saveJsonSettings, useJsonSettings } from "@/entities/User";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Drawer } from "@/shared/ui/Drawer/Drawer";
-import { Modal } from "@/shared/ui/Modal/Modal";
-import { Text } from "@/shared/ui/Text/Text";
+import { Drawer } from "@/shared/ui/deprecated/Drawer/Drawer";
+import { Modal } from "@/shared/ui/deprecated/Modal/Modal";
+import { Text } from "@/shared/ui/deprecated/Text/Text";
 import { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
 import { useTranslation } from "react-i18next";

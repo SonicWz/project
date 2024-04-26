@@ -4,9 +4,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationList.module.scss';
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { VStack } from '@/shared/ui/Stack';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 
 interface NotificationListProps {
     className?: string;

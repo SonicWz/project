@@ -3,12 +3,12 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './EditableProfileCardHeader.module.scss';
-import { Text } from '@/shared/ui/Text/Text';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { getProfileData } from '@/features/EditableProfileCard/model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '@/features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions } from '@/features/EditableProfileCard/model/slice/profileSlice';

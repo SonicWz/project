@@ -7,7 +7,7 @@ import { getUserInited, initAuthData } from "@/entities/User";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { AppRouter } from "./providers/router";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { PageLoader } from "@/shared/ui/PageLoader/PageLoader";
+import { PageLoader } from "@/shared/ui/deprecated/PageLoader/PageLoader";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { MainLayout } from "@/shared/layouts/MainLayout";
 
